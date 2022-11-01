@@ -1,0 +1,376 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+:root{
+    --btn-bg:#222;
+    --btn-color:#fff;
+    --cir-bg:#ccc;
+    --light-btn-bg:#69f;
+}
+
+*{margin: 0; padding:0;}
+
+#bgvideo{
+    min-width:100%; 
+    min-height:100vh;
+    position: fixed;
+    width:auto;
+    height:auto;
+    z-index: -999;
+}
+
+.title02{
+    color: #fff;
+    font-size: 40px;
+    position: relative;
+    right: -800px;
+    top: 600px;
+    
+
+}
+/* body{
+    background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+} */
+/* #wrap{
+    width:600%;
+    display: flex;
+} */
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    display: block;
+    color:inherit;
+}
+img{
+    display: block;
+}
+section{
+    height:100vh;
+    width:100%;
+    position: relative;
+    font-family: 'Noto Sans KR', sans-serif;
+    color:#333;
+}
+
+/* burger */
+.burger{width:40px; height:40px; cursor: pointer;
+    position: fixed;
+    top:40px; right:40px;
+    z-index: 9999999;
+}
+.burger .bar{
+    width:40px; height:8px;
+    background:#ccc;
+    position: absolute;
+    transition: .3s;
+}
+.burger .bar:nth-child(2), 
+.burger .bar:nth-child(3){
+    top:16px;
+}
+.burger .bar:nth-child(4){
+    top:32px;
+}
+
+.burger.on .bar:nth-child(1), 
+.burger.on .bar:nth-child(4){
+    opacity: 0;
+}
+.burger.on .bar:nth-child(2){
+    transform: rotate(45deg);
+}
+.burger.on .bar:nth-child(3){
+    transform: rotate(-45deg);
+}
+/* burger-end */
+
+/* nav */
+nav{
+    position: fixed;
+    top:0; left:0;
+    z-index: -9999;
+    width:100%; height:100vh;
+    background: rgba(0,0,0,0);
+    transition: .6s;
+}
+nav.on{
+    z-index: 9999;
+    background: rgba(0,0,0,.8);
+}
+nav .gnb{
+    width:150px;
+    position: absolute;
+    top:50%; right:-200px;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: .6s;    
+}
+nav.on .gnb{
+    right:40px;
+    opacity: 1;
+}
+nav .gnb a{
+    line-height: 40px;
+    text-align: center;
+    background: #333;
+    color:#fff;
+    transition: .3s;
+}
+
+nav .gnb a:hover{
+    background:#69f;
+}
+
+nav .gnb a.active{
+    background:#ccc;
+}
+
+section:nth-child(even){
+    background:#eee;
+}
+section:nth-child(odd){
+    background:rgba(255,255,255,.8);
+}
+section:nth-child(1){
+    background:none;
+}
+
+#intro .title{
+    position: absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+}
+#intro .title h1{
+    text-align: center;
+    font-size: 3rem;
+}
+
+#profile{background: #fff;}
+
+section .card{
+    position: absolute;
+    bottom: 15vh;
+    width:15%;
+    left:-250px;
+    opacity: 0;
+    transition: .6s;
+}
+section .card img{
+    width:100%;
+}
+section .mockup{
+    position: absolute;
+    top:50%; right:-200px;    
+    opacity: 0;    
+    width:80%;
+    height:70vh;    
+    transition: .6s;
+    transition-delay: .3s;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+section .mockup:after{
+    content: "자세히 보기";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:100%;    
+    position: absolute;
+    top:0; left:0;
+    background:rgba(0,0,0,.6);
+    font-style: 3rem;
+    color:#fff;
+    transition: .3s;
+    opacity: 0;
+}
+section .mockup:hover:after{
+    content: "자세히 보기";
+    opacity: 1;
+}
+section.on .card{
+    left:50px;
+    opacity: 1;
+}
+section.on .mockup{
+    position: absolute;
+    top:50%; right:0px;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+/* .mokup bgimg */
+#work01 .mockup{
+    background: url("../img/오뚜기목업.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+#work02 .mockup{
+    background: url("../img/보그목업.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+#work03 .mockup{
+    background: url("../img/코롬방목업.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+/* menu */
+.menu{
+    position: fixed;
+    display: flex;
+    bottom:40px;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+.menu a{
+    width:24px;
+    height:24px;
+    background:#333;
+    border-radius: 12px;
+    margin: 24px;
+    transition: .3s;
+}
+.menu a.on{
+    background:#ccc;
+    outline: 3px solid #333;
+}
+
+/* profile darkMode btn */
+.btn{
+    width:120px; height:40px;
+    border-radius: 20px;
+    background:var(--btn-bg);
+    position: absolute;
+    top:40px; left:40px;
+    z-index: 9999999990;
+}
+.btn.active{
+    background:var(--light-btn-bg);
+}
+.btn-circle{
+    width:36px; height:36px;
+    border-radius: 50%;
+    background:var(--cir-bg);
+    position: absolute;
+    top:2px;  left:2px; 
+    transition: .3s;         
+}
+.btn.active .btn-circle{
+    left:82px;
+}
+.btn-text{
+    text-align: center;
+    line-height: 40px;
+    color:var(--btn-color);
+    font-size: .8rem;
+    transform: translateX(10px);
+    transition: .3s;
+}
+.btn.active .btn-text{
+    transform: translateX(-15px);
+}
+/* #profile.active{
+    background:var(--btn-bg);
+    color:var(--btn-color);
+} */
+
+/* profile 사선이동 배경 */
+/* #profile{
+    overflow: hidden;
+    background: none; 
+}
+.pro-bg{
+    width:100%;
+    height:100vh;
+    background: #eee;
+    position: absolute;
+    z-index: -100;
+}
+.bg-wrap{
+    width:200%;
+    height:200vh;
+    position: absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    z-index: -1;
+}
+#profile .bg-box1{
+    width:45%;
+    height:100%;
+    background:#ccc;
+    transform: rotate(15deg) translateY(-1000px);
+    transform-origin: right center;
+    transition: .6s;
+    transition-delay: 1s;
+}
+#profile .bg-box2{
+    width:55%;
+    height:100%;
+    background:#555;
+    transform: rotate(15deg) translateY(1000px);
+    transform-origin: left center;
+    transition: .6s;
+    transition-delay: 1.2s;
+}
+#profile.on .bg-box1{
+    transform: rotate(15deg);
+}
+#profile.on .bg-box2{
+    transform: rotate(15deg);
+}
+
+#profile .title{
+    position: absolute;
+    top:20%; left:10%;
+    transform: translate(-50%, -50%);
+}
+
+/* skill gauge */
+/* .photo, .ill{
+    width:500px;
+    height:40px;
+    background:#eee;
+}
+.photo .gauge{
+    width:0%;
+    height:40px;
+    background: #adf;
+    transition: .6s;
+}
+.ill .gauge{
+    width:0%;
+    height:40px;
+    background: #fad;
+    transition: .6s;
+}
+#profile.on .photo .gauge{
+    width:90%;
+    transition-delay: 2s;
+}
+#profile.on .ill .gauge{
+    width:85%;
+    transition-delay: 2.5s;
+} */
+
+/* .chart{
+    width:300px;
+    height:300px;
+    background: #eee;
+    border-radius: 50%;
+}  */
+
+/* profile */
+
+/* #profile{
+    overflow: hidden;
+    position: relative;
+    top: 50px;} */
+
+/* #profile img{width: 90%; height: 90%;
+            margin: 0 auto;} */
